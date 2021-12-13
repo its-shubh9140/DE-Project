@@ -9,9 +9,9 @@
 ## Introduction
 The project is intended to provide details of Web Scraping a popular website 
 www.naukri.com and extracting different fields of data available there to do
-some analysis on different hot jobs being posted on the website.We specifica-
-lly made use of Google cloud products to perform different steps of the proje-
-ct like VM to run a scheduled scraper,Apache beam to perform transformation,
+some analysis on different hot jobs being posted on the website.We specifically
+made use of Google cloud products to perform different steps of the project
+like VM to run a scheduled scraper,Apache beam to perform transformation,
 cloud function to load csv files to Big-Query and Data Studio to analyze and
 prepare reports.
 ## Objective 
