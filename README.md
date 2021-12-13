@@ -20,8 +20,8 @@ Enginnering practices through Google Cloud.
 ## Process Flow
 ![ProcessFlow](workflow.png)
 ## How it works
-This project has been done in four major steps and the a through explanation
-has been provided in the README files of each segregated feature folder.
+This project has been done in four major steps and a through explanation
+has been provided in the README file of each segregated feature folder.
 
 1. ##### Data Collection through a Scrapper
 
