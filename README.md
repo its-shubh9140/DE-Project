@@ -17,7 +17,7 @@ prepare reports.
 ## Objective 
 To draw some insights out of the data we collected by making use of the Data
 Enginnering practices through Google Cloud.
-## Design
+## Process Flow
 ![ProcessFlow](workflow.png)
 ## How it works
 This project has been done in four major steps and the a through explanation
