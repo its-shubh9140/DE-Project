@@ -1,54 +1,34 @@
-# Training Project For Data Engineering
+# Training Project For Data Engineering Task
 
 ## Table of contents
-
 1. Introduction
 2. Objective
 3. Design
-4. How it works:
-
-   - Data scraping
-
-
-   - Data Flow:
-     - scraped data stored in GCS Bucket
-     - cleaning data from Apache Beam
-     - load cleaned data from GCS to Big Query
-   - Analytics
-     - Google Data Studio
-
+4. How it works
 5. Contributions
-
-
 ## Introduction
-
-
-
-
-
-
-
-
-
-## Objective
-
-
-
-
-
+The project is intended to provide details of Web Scraping a popular website 
+www.naukri.com and extracting different fields of data available there to do
+some analysis on different hot jobs being posted on the website.We specifica-
+lly made use of Google cloud products to perform different steps of the proje-
+ct like VM to run a scheduled scraper,Apache beam to perform transformation,
+cloud function to load csv files to Big-Query and Data Studio to analyze and
+prepare reports.
+## Objective 
+To draw some insights out of the data we collected by making use of the Data
+Enginnering practices through Google Cloud.
 ## Design
-
-![workflow](C:\Users\prateek\OneDrive\Desktop\workflow.png)
-
-
-
-
-
+![ProcessFlow](workflow.png)
 ## How it works
+This project has been done in four major steps and the a through explanation
+has been provided in the README files of each segregated feature folder.
 
+1. ##### Data Collection through a Scrapper
 
+2. ##### Transformation of data through Apache Beam
 
+3. ##### Loading processed data into BigQuery
 
-
+4. ##### Preparation of dashboards through Data Studio to draw insights
 ## Contributions
 
