@@ -45,7 +45,7 @@ def csv_loader(event):
 
         load_job.result()  # Waits for the job to complete.
         destination_table = client.get_table(table_id)  # Make an API request.
-        print("Loaded {} rows.".format(destination_table.num_rows))
+        logging.info("Loaded {} rows.".format(destination_table.num_rows))
         x=datetime.datetime.now().replace(microsecond=0)
         #print(x+"Ptr")
         #send_email(["sarojprateekkumar@gmail.com","megha.vishwase@mediaagility.com ","mayuresh.bharmoria@mediaagility.com"],'successfull loaded the file '+str(uri)+' to bigquery')
