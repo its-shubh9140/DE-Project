@@ -1,2 +1,0 @@
-{"recipient_email":["sarojprateekkumar@gmail.com","krpatrick2017@gmail.com","shubh914084@gmail.com","monika.dubey@mediaagility.com"],
-"table_name":"de-training-project.jobs_info_naukri.jobs-table-with-date-time-and-url"}
