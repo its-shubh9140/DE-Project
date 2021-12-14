@@ -63,7 +63,7 @@ def csv_loader(event):
         with open('failure.txt') as f:
             failed_msg= f.read()
         send_email(mail_addr, sub,failed_msg)
-        logging.info('Error Occured while loading data')
+        logging.info('Error Occured while loading data into bigquery')
 
 event={'bucket': 'training-demo-project', 'contentType': 'application/vnd.ms-excel', 'crc32c': 'GgOaXQ==',
         'etag': 'CO7V0o3R2PQCEAE=', 'generation': '1639118730996462',
