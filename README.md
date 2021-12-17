@@ -1,34 +1,95 @@
-# Training Project For Data Engineering Task
+# Load csv data from cloud storage  into BigQuery
 
-## Table of contents
-1. Introduction
-2. Objective
-3. Design
-4. How it works
-5. Contributions
-## Introduction
-The project is intended to provide details of Web Scraping a popular website 
-www.naukri.com and extracting different fields of data available there to do
-some analysis on different hot jobs being posted on the website.We specifically
-made use of Google cloud products to perform different steps of the project
-like VM to run a scheduled scraper,Apache beam to perform transformation,
-cloud function to load csv files to Big-Query and Data Studio to analyze and
-prepare reports.
-## Objective 
-To draw some insights out of the data we collected by making use of the Data
-Enginnering practices through Google Cloud.
-## Process Flow
-![ProcessFlow](workflow.png)
-## How it works
-This project has been done in four major steps and a through explanation
-has been provided in the README file of each segregated feature folder.
+### Step1 : Go to GCP Console 
 
-1. ##### Data Collection through a Scrapper
+- Make two bucket "staging-data-scraper" and processed-data from apache-beam"
 
-2. ##### Transformation of data through Apache Beam
 
-3. ##### Loading processed data into BigQuery
+- Make dataset " jobs-info-naukri" : Create two database "jobs-table-with-date-time-and-url"
 
-4. ##### Preparation of dashboards through Data Studio to draw insights
-## Contributions
+  and Master Database "master-table"
 
+  Google Data Studio connect with Master Database
+
+- make cloud function "load-csv"
+
+  (BigQuery  Documentation Loading CSV data from cloud  storage)
+
+  [https://cloud.google.com/bigquery/docs/loading-data-cloud-storage-csv]()
+
+### Step2: In cloud function:
+
+make a file "single-csv-to-bq" and "multiple-csv-to-bq"
+
+```python
+import logging
+from google.cloud import bigquery, client
+import datetime
+from my_data import data, mail_addr, table
+from sending_mail import send_email
+def csv_loader(event,context):
+    client = bigquery.Client()
+
+# TODO(developer): Set table_id to the ID of the table to create.
+# table_id = "your-project.your_dataset.your_table_name"
+
+    job_config = bigquery.LoadJobConfig(
+    schema=[
+        #bigquery.SchemaField("serial_no", "INTEGER"),
+        bigquery.SchemaField("roles", "STRING"),
+        bigquery.SchemaField("companies", "STRING"),
+        bigquery.SchemaField("locations", "STRING"),
+        bigquery.SchemaField("experience", "STRING"),
+        bigquery.SchemaField("skills", "STRING"),
+        bigquery.SchemaField("job_posted_date", "DATE"),
+        bigquery.SchemaField("scraper_run_date_time", "DATETIME"),
+        bigquery.SchemaField("url", "STRING"),
+
+    ],
+    skip_leading_rows=1,
+    # The source format defaults to CSV, so the line below is optional.
+    source_format=bigquery.SourceFormat.CSV,
+)
+# get this from event
+    #uri = "gs://training-demo-project/naukri2.csv"
+    uri="gs://"+event['bucket']+"/"+event['name']
+    logging.debug(uri)
+
+# static load it from later
+    try:
+        #table_id="de-training-project.jobs_info_naukri.jobs"
+        table_id=table
+        logging.debug(table_id)
+
+
+        load_job = client.load_table_from_uri(uri, table_id, job_config=job_config)  # Make an API request.
+
+
+#mport dat time and str(datetime.now())
+
+        load_job.result()  # Waits for the job to complete.
+        destination_table = client.get_table(table_id)  # Make an API request.
+        print("Loaded {} rows.".format(destination_table.num_rows))
+        x=datetime.datetime.now().replace(microsecond=0)
+        #print(x+"Ptr")
+        #send_email(["email_id"],'successfull loaded the file '+str(uri)+' to bigquery')
+        sub = ' file ' + str(uri) + ' loaded successfully ' + ' into bigquery at ' + str(x)
+        with open('success.txt') as myfile:
+            success_msg= myfile.read()
+        send_email(mail_addr,sub,success_msg)
+
+
+    except Exception as e:
+        logging.error(e)
+    #send_email(["email_id"],'')
+        x=datetime.datetime.now().replace(microsecond=0)
+        sub=' File ' +str(uri) +' is not loaded into bigquery at '+ str(x) + '. error found : '+ str(e)
+        with open('failure.txt') as f:
+            failed_msg= f.read()
+        send_email(mail_addr, sub,failed_msg)
+        logging.info('Error Occured while loading data')
+```
+
+Process flow:
+
+![process_flow_by_prateek](C:\Users\prateek\OneDrive\Documents\process_flow_by_prateek.png)
