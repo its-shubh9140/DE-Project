@@ -6,9 +6,7 @@ To scrape data fields from the website this scraper is automated by making use o
 
 ### Work flow
 
-![scraper workflow](https://github.com/its-shubh9140/DE-Project/blob/main/job_details_scraper/VM.PNG)
-
-
+![scraper workflow](https://github.com/its-shubh9140/DE-Project/blob/main/job_details_scraper/scraper%20workflow.PNG)
 
 ## To run scraper on VM instance
 
@@ -26,7 +24,7 @@ pip3 install -r requirements.txt
 
 **To run the scraper file one has to SSH into the VM as shown.**
 
-![VM](VM.png)
+![VM]((https://github.com/its-shubh9140/DE-Project/blob/main/job_details_scraper/VM.PNG)
 
  **Run the following command in the terminal** .
 
