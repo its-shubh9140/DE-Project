@@ -24,7 +24,7 @@ pip3 install -r requirements.txt
 
 **To run the scraper file one has to SSH into the VM as shown.**
 
-![VM]((https://github.com/its-shubh9140/DE-Project/blob/main/job_details_scraper/VM.PNG)
+![VM](https://github.com/its-shubh9140/DE-Project/blob/main/job_details_scraper/VM.PNG)
 
  **Run the following command in the terminal** .
 
