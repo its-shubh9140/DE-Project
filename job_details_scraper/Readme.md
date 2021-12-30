@@ -6,7 +6,7 @@ To scrape data fields from the website this scraper is automated by making use o
 
 ### Work flow
 
-![scraper workflow](scraper workflow.png)
+![scraper workflow](https://github.com/its-shubh9140/DE-Project/blob/main/job_details_scraper/VM.PNG)
 
 
 
