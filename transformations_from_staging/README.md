@@ -69,10 +69,10 @@
 Enable <b>Dataflow API</b> and set your <b> GOOGLE_APPLICATION_CREDENTIALS</b> .
 
       1. Go to Dataflow on google cloud platform.
-      1. select create job from template.
-      1. Provide job name .
-      1. From Dataflow template select custom template option.
-      1. In custom template , select template from bucket .
-      1. provide temporary location.
-      1. Click on Run Job.
+      2. select create job from template.
+      3. Provide job name .
+      4. From Dataflow template select custom template option.
+      5. In custom template , select template from bucket .
+      6. provide temporary location.
+      7. Click on Run Job.
 
