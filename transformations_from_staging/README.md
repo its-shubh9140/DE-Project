@@ -8,8 +8,7 @@
 
 ######                            <img src="https://github.com/its-shubh9140/DE-Project/blob/main/transformations_from_staging/data%20pipe.PNG" alt="data pipe" style="zoom:30%;" />
 
-​										                         Fig. Data Cleaning and Transformation through Apache Beam.
-
+​										                         
 ####    Steps:
 
 1. Pcollection-Reads data from scraped data.
