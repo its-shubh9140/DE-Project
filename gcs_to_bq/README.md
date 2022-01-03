@@ -40,7 +40,7 @@ https://cloud.google.com/functions/docs/calling/storage
 
 ## Design
 
-![design_gcs_to_BQ](C:\Users\prateek\OneDrive\Desktop\khatauni\design_gcs_to_BQ.png)
+![design_gcs_to_BQ](https://github.com/its-shubh9140/DE-Project/blob/main/gcs_to_bq/design_gcs_to_BQ.png)
 
 
 
