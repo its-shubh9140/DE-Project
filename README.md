@@ -1,4 +1,4 @@
-# Training Project For Data Engineering Task
+# Project For Data Engineering Task on GCP
 
 ## Table of contents
 1. Introduction
